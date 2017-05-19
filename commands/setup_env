@@ -31,7 +31,7 @@ function setup_env {
   link $DOTFILES_SHELL/spectacle.json $HOME/Library/Application\ Support/Spectacle/Shortcuts.json
 
   einf "Linking iTerm 2 config"
-  link $DOTFILES_SHELL/iterm_settings.plist $HOME/Library/Preferences/com.googlecode.iterm2.plist
+  link $DOTFILES_SHELL/iterm_settings $HOME/Library/Preferences/com.googlecode.iterm2.plist
 }
 
 askdo setup_env "Setup environment?"
