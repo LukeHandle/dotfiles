@@ -1,6 +1,10 @@
 [user]
 	name = David Marby
 	email = david@dmarby.se
+    signingkey = david@dmarby.se
+
+[commit]
+    gpgsign = true
 
 [core]
 	editor = /usr/bin/vim

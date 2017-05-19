@@ -14,3 +14,4 @@ readline
 wget
 xz
 homebrew/dupes/grep
+gpg
