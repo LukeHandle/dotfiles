@@ -1,0 +1,18 @@
+[user]
+	name = David Marby
+	email = david@dmarby.se
+
+[core]
+	editor = /usr/bin/vim
+
+[color]
+    ui = auto
+
+[push]
+    default = current
+    followTags = true
+
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = red

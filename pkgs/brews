@@ -1,0 +1,16 @@
+cask
+mas
+gnu-sed
+htop
+autoconf
+binutils
+gawk
+gmp
+help2man
+mpfr
+openssl
+pcre
+readline
+wget
+xz
+homebrew/dupes/grep
