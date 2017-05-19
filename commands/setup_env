@@ -30,6 +30,10 @@ function setup_env {
   einf "Linking spectacle config"
   link $DOTFILES_SHELL/spectacle.json $HOME/Library/Application\ Support/Spectacle/Shortcuts.json
 
+  einf "Setting up gnupg"
+  mkdir -p $HOME/.gnupg
+  link /Volumes/Imation\ USB/gnupg/private-keys-v1.d $HOME/.gnupg/private-keys-v1.d
+
   einf "Open iTerm 2, set the custom configuration folder to ~/.dotfiles/shell"
 }
 

@@ -25,6 +25,9 @@ function uninstall_env {
 
   einf "Unlinking spectacle config"
   rm -f $HOME/Library/Application\ Support/Spectacle/Shortcuts.json
+
+  einf "Unlinking gnupg"
+  rm -f $HOME/.gnupg/private-keys-v1.d
 }
 
 askdo uninstall_env "Unlink environment files?"
