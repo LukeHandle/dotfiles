@@ -20,3 +20,6 @@
     added = green
     changed = yellow
     untracked = red
+
+[gpg]
+    program = /usr/local/bin/gpg
