@@ -30,8 +30,7 @@ function setup_env {
   einf "Linking spectacle config"
   link $DOTFILES_SHELL/spectacle.json $HOME/Library/Application\ Support/Spectacle/Shortcuts.json
 
-  einf "Linking iTerm 2 config"
-  link $DOTFILES_SHELL/iterm_settings $HOME/Library/Preferences/com.googlecode.iterm2.plist
+  einf "Open iTerm 2, set the custom configuration folder to ~/.dotfiles/shell"
 }
 
 askdo setup_env "Setup environment?"

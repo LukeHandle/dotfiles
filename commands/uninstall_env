@@ -25,9 +25,6 @@ function uninstall_env {
 
   einf "Unlinking spectacle config"
   rm -f $HOME/Library/Application\ Support/Spectacle/Shortcuts.json
-
-  einf "Unlinking iTerm 2 config"
-  rm -f $HOME/Library/Preferences/com.googlecode.iterm2.plist
 }
 
 askdo uninstall_env "Unlink environment files?"
