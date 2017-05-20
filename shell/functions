@@ -92,7 +92,7 @@ ironkey_backup() {
   fi
 
   echo Mounting image
-  sudo hdiutil attach -mountpoint "$backup_mount" "$backup_image_path"
+  sudo hdiutil attach -mountpoint "$backup_mount" "$backup_image_path" -stdinpass
 
   echo Syncing files
   rsync -avh --exclude=.fseventsd --exclude=.Apps --exclude=.apdisk --exclude=.Trashes --exclude=.TemporaryItems --exclude=.DocumentRevisions-V100 --exclude=.Spotlight-V100 --delete "$ironkey_mount/" "$backup_mount/"
