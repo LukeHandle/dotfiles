@@ -9,6 +9,7 @@ function setup_env {
   link $DOTFILES_SHELL/functions $HOME/.functions.sh
   link $DOTFILES_SHELL/exports $HOME/.exports.sh
   link $DOTFILES_SHELL/aliases $HOME/.aliases.sh
+  link $DOTFILES_SHELL/iterm2_shell_integration $HOME/.iterm2_shell_integration.sh
   link $DOTFILES_SHELL/bash_profile $HOME/.bash_profile
 
   einf "Linking editor configs"

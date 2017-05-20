@@ -9,6 +9,7 @@ function uninstall_env {
   rm -f $HOME/.functions.sh
   rm -f $HOME/.exports.sh
   rm -f $HOME/.aliases.sh
+  rm -f $HOME/.iterm2_shell_integration.sh
   rm -f $HOME/.bash_profile
 
   einf "Unlinking editor configs"
