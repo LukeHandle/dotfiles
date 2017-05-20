@@ -8,7 +8,7 @@ path_append() {
 }
 
 path_prepend() {
-  for ((i=$#; i>0; i--)); 
+  for ((i=$#; i>0; i--));
   do
     ARG=${!i}
     if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
@@ -48,7 +48,7 @@ gz() {
   local osize=$(wc -c < "$1");
   local gsize=$(gzip -c "$1" | wc -c);
   local ratio=$(echo "$gsize * 100 / $osize" | bc -l);
-  
+
   printf "orig: %d bytes\n" "$osize";
   printf "gzip: %d bytes (%2.2f%%)\n" "$gsize" "$ratio";
 }
@@ -61,7 +61,49 @@ c() {
   fi
 }
 
+ironkey_backup() {
+  local ironkey_mount="/Volumes/Imation USB"
+  local storage_mount="/Volumes/Storage"
+  local backup_mount="/Volumes/IronKey_Backup"
+  local backup_image_path="$storage_mount/IronKey_Backup.sparseimage"
 
+  if [ ! -d "$ironkey_mount" ]; then
+    echo "Ironkey not mounted!"
+    return 1;
+  fi
 
+  echo Getting sudo privileges
+  sudo -v
 
+  if [ ! -d "$storage_mount" ]; then
+    echo Connecting to Storage
+    open -g afp://storage.home.dmarby.se/Storage
+    sleep 2
+  fi
 
+  if [ ! -d "$storage_mount" ]; then
+    echo "Storage not mounted!"
+    return 1;
+  fi
+
+  if [ ! -f "$backup_image_path" ]; then
+    echo "Backup image does not exist!"
+    return 1;
+  fi
+
+  echo Mounting image
+  sudo hdiutil attach -mountpoint "$backup_mount" "$backup_image_path"
+
+  echo Syncing files
+  rsync -avh --exclude=.fseventsd --exclude=.Apps --exclude=.apdisk --exclude=.Trashes --exclude=.TemporaryItems --exclude=.DocumentRevisions-V100 --exclude=.Spotlight-V100 --delete "$ironkey_mount/" "$backup_mount/"
+
+  echo Detaching image
+  local device=$(hdiutil info | grep "$backup_mount" | cut -f1)
+  sudo hdiutil unmount "$backup_mount"
+
+  if [ ! -z "$device" ]; then
+      sudo hdiutil detach $device
+  fi
+
+  echo Done
+}
