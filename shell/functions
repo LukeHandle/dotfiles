@@ -107,3 +107,9 @@ ironkey_backup() {
 
   echo Done
 }
+
+# Go
+gopath() {
+  local basename=$(basename $PWD)
+  cd ~/go/src/github.com/DMarby/$basename
+}

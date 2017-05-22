@@ -29,6 +29,9 @@ function uninstall_env {
 
   einf "Unlinking gnupg"
   rm -f $HOME/.gnupg/private-keys-v1.d
+
+  einf "Removing gopath"
+  rm -f $HOME/go/src/github.com/DMarby
 }
 
 askdo uninstall_env "Unlink environment files?"

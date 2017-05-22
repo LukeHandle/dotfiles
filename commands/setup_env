@@ -35,6 +35,13 @@ function setup_env {
   mkdir -p $HOME/.gnupg
   link /Volumes/Imation\ USB/gnupg/private-keys-v1.d $HOME/.gnupg/private-keys-v1.d
 
+  einf "Setting up Projects directory"
+  mkdir -p $HOME/Projects
+
+  einf "Setting up gopath"
+  mkdir -p $HOME/go/src/github.com
+  link $HOME/Projects $HOME/go/src/github.com/DMarby
+
   einf "Open iTerm 2, set the custom configuration folder to ~/.dotfiles/shell"
 }
 

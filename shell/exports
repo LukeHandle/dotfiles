@@ -37,3 +37,8 @@ export MANPAGER='less -X';
 
 # Path Sources
 path_append $HOME/.dotfiles/bin
+
+# GOPATH
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+path_append $GOBIN
