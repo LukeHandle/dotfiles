@@ -17,4 +17,4 @@ homebrew/dupes/grep
 gpg
 go
 bash
-bash-completion
+z

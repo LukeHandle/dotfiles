@@ -51,5 +51,3 @@ dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
 # Aliases
 aliases() { alias | grep $1 | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
-
-# Projects
