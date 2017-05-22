@@ -54,7 +54,7 @@ gz() {
 }
 
 c() {
-  if [ $# -eq 0]; then
+  if [ $# -eq 0 ]; then
     code .;
   else
     code "$@";
@@ -112,4 +112,12 @@ ironkey_backup() {
 gopath() {
   local basename=$(basename $PWD)
   cd ~/go/src/github.com/DMarby/$basename
+}
+
+p() {
+  if [ $# -eq 0 ]; then
+    cd $HOME/Projects;
+  else
+    cd "$HOME/Projects/$@";
+  fi
 }
