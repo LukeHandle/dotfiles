@@ -6,9 +6,6 @@
 [commit]
     gpgsign = true
 
-[core]
-	editor = /usr/bin/vim
-
 [color]
     ui = auto
 
@@ -26,3 +23,15 @@
 
 [url "git@github.com:"]
     pushInsteadOf = "https://github.com/"
+
+[core]
+    editor = code --wait
+
+[diff]
+    tool = vscode-diff
+
+[difftool]
+    prompt = false
+
+[difftool "vscode-diff"]
+	cmd = code --wait --diff $LOCAL $REMOTE
