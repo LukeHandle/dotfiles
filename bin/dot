@@ -44,6 +44,13 @@ function do_install {
         gsed -i.bak "\$s/$/\n$package/" $MAS_PACKAGES
       fi
       ;;
+    pip|p)
+      workon venv
+      pip install "$package"
+      if [ $? -eq 0 ]; then
+        gsed -i.bak "\$s/$/\n$package/" $PIP_PACKAGES
+      fi
+      ;;
   esac
 }
 
@@ -66,6 +73,11 @@ function do_uninstall {
     mas|m)
       gsed -i.bak "\$s/$/\n$package/" $MAS_PACKAGES
       echo "Removed from dotfiles, please uninstall manually"
+      ;;
+    pip|p)
+      gsed -i.bak "\$s/$/\n$package/" $PIP_PACKAGES
+      workon venv
+      pip uninstall "$package"
       ;;
   esac
 }

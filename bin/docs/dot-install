@@ -22,6 +22,9 @@ install package using VSCode
 .TP
 .BI mas " package"
 install package using Mac App Store
+.TP
+.BI pip " package"
+install package using pip
 
 .SH DESCRIPTION
 This command installs a package and updates the relevant dotfile when the command
@@ -39,6 +42,8 @@ A cask package
 A vscode package
 .IP \[bu] 2
 A Mac App Store app
+.IP \[bu] 2
+A pip package
 
 .SH AUTHOR
 

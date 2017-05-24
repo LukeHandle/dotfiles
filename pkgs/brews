@@ -19,3 +19,4 @@ go
 bash
 z
 ansible
+direnv
