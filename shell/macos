@@ -232,10 +232,12 @@ defaults write com.apple.dock wvous-br-modifier -int 0
 ###############################################################################
 # Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
-# Display emails in threaded mode, sorted by date (oldest at the top)
-defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "yes"
-defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "yes"
+# Display emails in threaded mode, sorted by date (newest at the top)
+defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "YES"
+defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "YES"
 defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date"
+# Show new emails at the top in threads
+defaults write com.apple.mail ConversationViewSortDescending -int 1
 
 ###############################################################################
 # Spotlight                                                                   #
