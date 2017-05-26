@@ -78,7 +78,7 @@ ironkey_backup() {
   if [ ! -d "$storage_mount" ]; then
     echo Connecting to Storage
     open -g afp://storage.home.dmarby.se/Storage
-    sleep 2
+    sleep 10
   fi
 
   if [ ! -d "$storage_mount" ]; then
