@@ -40,7 +40,9 @@ function setup_env {
 
   einf "Setting up gopath"
   mkdir -p $HOME/go/src/github.com
-  link $HOME/Projects $HOME/go/src/github.com/DMarby
+  if [ ! -L $HOME/go/src/github.com/DMarby ]; then
+    link $HOME/Projects $HOME/go/src/github.com/DMarby
+  fi
 
   einf "Open iTerm 2, set the custom configuration folder to ~/.dotfiles/shell"
 }
