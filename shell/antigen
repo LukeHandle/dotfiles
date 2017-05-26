@@ -1,0 +1,36 @@
+
+# Load antigen
+source $HOME/.vendor/zsh-antigen/antigen.zsh
+
+# Load oh-my-zsh
+antigen use oh-my-zsh
+
+# Bundles
+antigen bundle git
+antigen bundle pip
+antigen bundle brew
+antigen bundle golang
+antigen bundle emoji
+antigen bundle node
+antigen bundle npm
+antigen bundle docker
+antigen bundle gulp
+antigen bundle virtualenv
+antigen bundle virtualenvwrapper
+antigen bundle vagrant
+antigen bundle z
+antigen bundle command-not-found
+antigen bundle tonyseek/oh-my-zsh-virtualenv-prompt
+
+# Suggestions
+antigen bundle zsh-users/zsh-autosuggestions
+
+# Syntax highlighting
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Themes
+antigen theme robbyrussell/oh-my-zsh themes/avit
+antigen theme https://github.com/iam4x/zsh-iterm-touchbar
+
+# Apply
+antigen apply

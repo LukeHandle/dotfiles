@@ -9,8 +9,9 @@ function uninstall_env {
   rm -f $HOME/.functions.sh
   rm -f $HOME/.exports.sh
   rm -f $HOME/.aliases.sh
-  rm -f $HOME/.iterm2_shell_integration.sh
-  rm -f $HOME/.bash_profile
+  rm -f $HOME/.antigen.sh
+  rm -f $HOME/.profile
+  rn -f $HOME/.zshrc
 
   einf "Unlinking editor configs"
   rm -f $HOME/Library/Application\ Support/Code/User/settings.json
@@ -38,6 +39,9 @@ function uninstall_env {
 
   einf "Removing ovftool"
   rm -f /usr/local/bin/ovftool
+
+  einf "Changing shell back to bash"
+  chsh -s /bin/bash
 }
 
 askdo uninstall_env "Unlink environment files?"

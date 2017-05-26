@@ -3,6 +3,7 @@ alias sudo='sudo '
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
 alias flush='dscacheutil -flushcache && killall -HUP mDNSResponder'
 alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+alias reload='exec /bin/zsh -l'
 
 # Navigation
 alias ..="cd .."

@@ -53,9 +53,7 @@ function do_install {
       ;;
     go|g)
       go get "$package"
-      echo "LOL $? $GO_PACKAGES"
       if [ $? -eq 0 ]; then
-        echo "AYYY"
         gsed -i.bak "\$s~$~\n$package~" $GO_PACKAGES
       fi
       ;;

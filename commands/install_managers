@@ -11,6 +11,13 @@ function install_managers {
   else
     printf "n already installed... skipping\n"
   fi
+
+  if ! type "antigen" > /dev/null; then
+    einf "Installing antigen"
+    git clone https://github.com/zsh-users/antigen $VENDOR/zsh-antigen
+  else
+    printf "antigen already installed... skipping\n"
+  fi
 }
 
 askdo install_managers "Install managers (n)?"

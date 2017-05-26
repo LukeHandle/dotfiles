@@ -30,10 +30,12 @@ export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';
 
 # Highlight section titles in man pages
-export LESS_TERMCAP_md="${yellow}";
+export LESS_TERMCAP_md="$fg[yellow]";
 
 # Don't clear the screen after quitting a manual page
 export MANPAGER='less -X';
+
+# Sources for exports
 
 # Path Sources
 path_append $HOME/.dotfiles/bin
@@ -46,3 +48,10 @@ path_append $GOBIN
 # Python
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/Library/Caches/pip
+
+# direnv
+eval "$(direnv hook zsh)"
+
+PROMPT='
+$(_user_host)${_current_dir} $(git_prompt_info) $(virtualenv_prompt_info)
+%{$fg[$CARETCOLOR]%}▶%{$resetcolor%} '

@@ -9,8 +9,9 @@ function setup_env {
   link $DOTFILES_SHELL/functions $HOME/.functions.sh
   link $DOTFILES_SHELL/exports $HOME/.exports.sh
   link $DOTFILES_SHELL/aliases $HOME/.aliases.sh
-  link $DOTFILES_SHELL/iterm2_shell_integration $HOME/.iterm2_shell_integration.sh
-  link $DOTFILES_SHELL/bash_profile $HOME/.bash_profile
+  link $DOTFILES_SHELL/antigen $HOME/.antigen.sh
+  link $DOTFILES_SHELL/profile $HOME/.profile
+  link $DOTFILES_SHELL/zshrc $HOME/.zshrc
 
   einf "Linking editor configs"
   # VSCode Configuration File, attempt to remove existing settings and link ours
@@ -51,6 +52,11 @@ function setup_env {
 
   einf "Linking ovftool"
   link /Applications/VMware\ OVF\ Tool/ovftool /usr/local/bin/ovftool
+
+  einf "Changing shell to zsh"
+  sudo -v
+  echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells
+  chsh -s /usr/local/bin/zsh
 
   einf "Open iTerm 2, set the custom configuration folder to ~/.dotfiles/shell"
 }
