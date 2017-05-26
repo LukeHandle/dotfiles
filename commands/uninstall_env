@@ -32,6 +32,12 @@ function uninstall_env {
 
   einf "Removing gopath"
   rm -f $HOME/go/src/github.com/DMarby
+
+  einf "Removing packer config"
+  rm -f $HOME/.packerconfig
+
+  einf "Removing ovftool"
+  rm -f /usr/local/bin/ovftool
 }
 
 askdo uninstall_env "Unlink environment files?"

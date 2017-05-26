@@ -25,6 +25,9 @@ install package using Mac App Store
 .TP
 .BI pip " package"
 install package using pip
+.TP
+.BI go " package"
+install package using go
 
 .SH DESCRIPTION
 This command installs a package and updates the relevant dotfile when the command
@@ -44,6 +47,8 @@ A vscode package
 A Mac App Store app
 .IP \[bu] 2
 A pip package
+.IP \[bu] 2
+A go package
 
 .SH AUTHOR
 

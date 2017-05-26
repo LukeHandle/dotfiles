@@ -51,6 +51,14 @@ function do_install {
         gsed -i.bak "\$s/$/\n$package/" $PIP_PACKAGES
       fi
       ;;
+    go|g)
+      go get "$package"
+      echo "LOL $? $GO_PACKAGES"
+      if [ $? -eq 0 ]; then
+        echo "AYYY"
+        gsed -i.bak "\$s~$~\n$package~" $GO_PACKAGES
+      fi
+      ;;
   esac
 }
 
@@ -71,13 +79,17 @@ function do_uninstall {
       code --uninstall-extension "$package"
       ;;
     mas|m)
-      gsed -i.bak "\$s/$/\n$package/" $MAS_PACKAGES
+      gsed -i.bak "/$package/d" $MAS_PACKAGES
       echo "Removed from dotfiles, please uninstall manually"
       ;;
     pip|p)
-      gsed -i.bak "\$s/$/\n$package/" $PIP_PACKAGES
+      gsed -i.bak "/$package/d" $PIP_PACKAGES
       workon venv
       pip uninstall "$package"
+      ;;
+    go|g)
+      gsed -i.bak "/${package//\//\\/}/d" $GO_PACKAGES
+      go clean -i "$package"
       ;;
   esac
 }

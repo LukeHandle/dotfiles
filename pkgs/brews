@@ -20,3 +20,6 @@ bash
 z
 ansible
 direnv
+packer
+autoconf
+automake

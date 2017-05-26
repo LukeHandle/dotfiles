@@ -1,0 +1,5 @@
+{
+  "post-processors": {
+    "vsphere-template": "/Users/david/Projects/packer-post-processor-vsphere-template/packer-post-processor-vsphere-template"
+  }
+}
