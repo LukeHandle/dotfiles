@@ -50,5 +50,8 @@ alias dex="docker exec -i -t"
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
+# Open ironkey unlocker
+alias i='open /Volumes/IronKey\ Unlocker/IronKey.app'
+
 # Aliases
 aliases() { alias | grep $1 | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
