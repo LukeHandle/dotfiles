@@ -12,5 +12,6 @@
     },
     "files.trimTrailingWhitespace": true,
     "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "window.openFoldersInNewWindow": "on"
 }
