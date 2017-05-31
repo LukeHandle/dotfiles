@@ -11,7 +11,7 @@ dotfile directory.
 .SH COMMANDS
 
 .IP \[bu] 2
-.B install [brew|cask|code|mas|pip|go]
+.B install [brew|cask|code|mas|pip|go|npm]
 .I package
 .RS
 .in +2
@@ -21,7 +21,7 @@ Installs the
 .RB "the dotfile after successful install."
 .RE
 .IP \[bu]
-.B uninstall [brew|cask|code|mas|pip|go]
+.B uninstall [brew|cask|code|mas|pip|go|npm]
 .I package
 .RS
 .in +2

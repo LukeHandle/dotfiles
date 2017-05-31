@@ -28,6 +28,9 @@ install package using pip
 .TP
 .BI go " package"
 install package using go
+.TP
+.BI npm " package"
+install package using npm
 
 .SH DESCRIPTION
 This command installs a package and updates the relevant dotfile when the command
@@ -49,6 +52,8 @@ A Mac App Store app
 A pip package
 .IP \[bu] 2
 A go package
+.IP \[bu] 2
+A npm package
 
 .SH AUTHOR
 

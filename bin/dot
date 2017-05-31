@@ -57,6 +57,12 @@ function do_install {
         gsed -i.bak "\$s~$~\n$package~" $GO_PACKAGES
       fi
       ;;
+    npm|n)
+      npm install -g "$package"
+      if [ $? -eq 0 ]; then
+        gsed -i.bak "\$s/$/\n$package/" $NPM_PACKAGES
+      fi
+      ;;
   esac
 }
 
@@ -88,6 +94,10 @@ function do_uninstall {
     go|g)
       gsed -i.bak "/${package//\//\\/}/d" $GO_PACKAGES
       go clean -i "$package"
+      ;;
+    npm|n)
+      gsed -i.bak "/$package/d" $NPM_PACKAGES
+      npm uninstall -g "$package"
       ;;
   esac
 }
