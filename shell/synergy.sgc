@@ -1,0 +1,41 @@
+section: screens
+	DMarby:
+		alt = meta
+		super = alt
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		switchCorners = none 
+		switchCornerSize = 0
+	DMarby-PC:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		switchCorners = none 
+		switchCornerSize = 0
+end
+
+section: aliases
+end
+
+section: links
+	DMarby:
+		right = DMarby-PC
+	DMarby-PC:
+		left = DMarby
+end
+
+section: options
+	relativeMouseMoves = false
+	screenSaverSync = false
+	win32KeepForeground = false
+	clipboardSharing = true
+	switchCorners = none 
+	switchCornerSize = 0
+	keystroke(F10) = keystroke(AudioPlay,DMarby)
+	keystroke(F7) = keystroke(AudioMute,DMarby)
+	keystroke(F8) = keystroke(AudioDown,DMarby)
+	keystroke(F9) = keystroke(AudioUp,DMarby)
+end
