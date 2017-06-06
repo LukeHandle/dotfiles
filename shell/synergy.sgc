@@ -34,8 +34,11 @@ section: options
 	clipboardSharing = true
 	switchCorners = none 
 	switchCornerSize = 0
-	keystroke(F10) = keystroke(AudioPlay,DMarby)
 	keystroke(F7) = keystroke(AudioMute,DMarby)
 	keystroke(F8) = keystroke(AudioDown,DMarby)
 	keystroke(F9) = keystroke(AudioUp,DMarby)
+	keystroke(F10) = keystroke(AudioPlay,DMarby)
+	keystroke(F11) = keystroke(AudioPrev,DMarby)
+	keystroke(F12) = keystroke(AudioNext,DMarby)
 end
+
