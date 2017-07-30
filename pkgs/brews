@@ -18,7 +18,7 @@ gpg
 go
 bash
 z
-ansible --HEAD
+ansible
 direnv
 packer
 autoconf
