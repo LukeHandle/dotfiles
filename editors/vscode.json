@@ -13,5 +13,8 @@
     "files.trimTrailingWhitespace": true,
     "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
     "files.insertFinalNewline": true,
-    "window.openFoldersInNewWindow": "on"
+    "window.openFoldersInNewWindow": "on",
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false
+    }
 }
