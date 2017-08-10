@@ -21,6 +21,8 @@ antigen bundle virtualenvwrapper
 antigen bundle vagrant
 antigen bundle z
 antigen bundle command-not-found
+antigen bundle zchee/go-zsh-completions
+antigen bundle kubectl
 antigen bundle tonyseek/oh-my-zsh-virtualenv-prompt
 
 # Suggestions
