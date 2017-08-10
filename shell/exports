@@ -52,18 +52,6 @@ export PIP_DOWNLOAD_CACHE=$HOME/Library/Caches/pip
 # direnv
 eval "$(direnv hook zsh)"
 
-# Custom prompt
-function _user_host() {
-  if [[ -n $SSH_CONNECTION ]]; then
-    me="%n@%m"
-  elif [[ $LOGNAME != $USER ]]; then
-    me="%n"
-  fi
-  if [[ -n $me ]]; then
-    echo "%{$fg[cyan]%}$me%{$reset_color%}:"
-  fi
-}
-
 PROMPT='
 $(_user_host)${_current_dir} $(git_prompt_info) $(virtualenv_prompt_info)
 %{$fg[$CARETCOLOR]%}▶%{$resetcolor%} '

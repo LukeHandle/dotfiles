@@ -24,6 +24,7 @@ antigen bundle command-not-found
 antigen bundle zchee/go-zsh-completions
 antigen bundle kubectl
 antigen bundle tonyseek/oh-my-zsh-virtualenv-prompt
+antigen bundle iam4x/zsh-iterm-touchbar
 
 # Suggestions
 antigen bundle zsh-users/zsh-autosuggestions
@@ -33,7 +34,6 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Themes
 antigen theme robbyrussell/oh-my-zsh themes/avit
-antigen theme https://github.com/iam4x/zsh-iterm-touchbar
 
 # Apply
 antigen apply
