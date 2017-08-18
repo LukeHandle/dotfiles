@@ -16,5 +16,6 @@
     "window.openFoldersInNewWindow": "on",
     "[markdown]": {
         "files.trimTrailingWhitespace": false
-    }
+    },
+    "python.pythonPath": "~/.dotfiles/virtualenvs/venv/bin/python"
 }
