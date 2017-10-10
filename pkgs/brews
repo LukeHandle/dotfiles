@@ -24,3 +24,5 @@ packer
 autoconf
 automake
 zsh
+sslmate
+vips
