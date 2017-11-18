@@ -1,7 +1,9 @@
 PeterJausovec.vscode-docker
 djabraham.vscode-yaml-validation
-donjayamanne.python
 lukehoban.go
 mohsen1.prettify-json
 ms-vscode.cpptools
 jcbuisson.vue
+selzoc.ginkgo-lens
+ms-python.python
+onsi.vscode-ginkgo
