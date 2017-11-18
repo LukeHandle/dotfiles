@@ -27,3 +27,5 @@ zsh
 sslmate
 vips
 b2-tools
+go-delve/delve/delve
+dep
