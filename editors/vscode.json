@@ -17,5 +17,12 @@
     "[markdown]": {
         "files.trimTrailingWhitespace": false
     },
-    "python.pythonPath": "~/.dotfiles/virtualenvs/venv/bin/python"
+    "python.pythonPath": "~/.dotfiles/virtualenvs/venv/bin/python",
+    "go.useLanguageServer": true,
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "go.docsTool": "gogetdoc",
+    "go.enableCodeLens": {
+        "references": true,
+        "runtest": true
+    }
 }
