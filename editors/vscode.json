@@ -19,10 +19,11 @@
     },
     "python.pythonPath": "~/.dotfiles/virtualenvs/venv/bin/python",
     "go.useLanguageServer": true,
-    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "go.useCodeSnippetsOnFunctionSuggest": false,
     "go.docsTool": "gogetdoc",
     "go.enableCodeLens": {
         "references": true,
         "runtest": true
-    }
+    },
+    "editor.multiCursorModifier": "alt"
 }
