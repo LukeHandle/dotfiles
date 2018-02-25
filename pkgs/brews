@@ -28,3 +28,9 @@ vips
 b2-tools
 go-delve/delve/delve
 dep
+tig
+ykpers
+gnupg
+hopenpgp-tools
+ykman
+pinentry-mac

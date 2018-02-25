@@ -34,9 +34,8 @@ function setup_env {
 
   einf "Setting up gnupg"
   mkdir -p $HOME/.gnupg
-  if [ ! -L $HOME/.gnupg/private-keys-v1.d ]; then
-    link /Volumes/Imation\ USB/gnupg/private-keys-v1.d $HOME/.gnupg/private-keys-v1.d
-  fi
+  link $DOTFILES_SHELL/gpg_conf $HOME/.gnupg/gpg.conf
+  link $DOTFILES_SHELL/gpg_agent_conf $HOME/.gnupg/gpg-agent.conf
 
   einf "Setting up Projects directory"
   mkdir -p $HOME/Projects

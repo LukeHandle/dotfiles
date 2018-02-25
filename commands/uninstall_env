@@ -29,7 +29,8 @@ function uninstall_env {
   rm -f $HOME/Library/Application\ Support/Spectacle/Shortcuts.json
 
   einf "Unlinking gnupg"
-  rm -f $HOME/.gnupg/private-keys-v1.d
+  rm -f $HOME/.gnupg/gpg.conf
+  rm -f $HOME/.gnupg/gpg-agent.conf
 
   einf "Removing gopath"
   rm -f $HOME/go/src/github.com/DMarby
