@@ -91,7 +91,7 @@ klein() {
     fi
 
     if [[ $output == http* ]]; then
-      echo $output | pbcopy
+      echo -n $output | pbcopy
     fi
 
     echo $output
