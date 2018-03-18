@@ -74,3 +74,26 @@ p() {
     cd "$HOME/Projects/$@";
   fi
 }
+
+klein() {
+  local url="https://dmar.by/"
+  local key=$(cat $HOME/.klein)
+
+  if [[ -z "$1" ]]; then
+    echo "$0 [url] [alias?]" >&2
+  else
+    local output
+
+    if [[ -n "$2" ]]; then
+      output=$(echo -n "$1" | tr -d '\n' | curl -s -X POST -F "alias=$(basename "$2")" -F "key=${key}" -F 'url=<-' "$url")
+    else
+      output=$(echo -n "$1" | tr -d '\n' | curl -s -X POST -F "key=${key}" -F 'url=<-' "$url")
+    fi
+
+    if [[ $output == http* ]]; then
+      echo $output | pbcopy
+    fi
+
+    echo $output
+  fi
+}
