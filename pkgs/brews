@@ -35,3 +35,5 @@ hopenpgp-tools
 ykman
 pinentry-mac
 terraform
+ipmitool
+ipmiview
