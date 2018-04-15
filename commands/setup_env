@@ -46,9 +46,6 @@ function setup_env {
     link $HOME/Projects $HOME/go/src/github.com/DMarby
   fi
 
-  einf "Setting up packer config"
-  link $DOTFILES_SHELL/packerconfig $HOME/.packerconfig
-
   einf "Linking ovftool"
   link /Applications/VMware\ OVF\ Tool/ovftool /usr/local/bin/ovftool
 
