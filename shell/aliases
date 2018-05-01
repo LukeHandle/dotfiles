@@ -1,6 +1,6 @@
 # System Management
 alias sudo='sudo '
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cask upgrade; brew cask cleanup; brew cleanup'
+alias update='workon venv; pip freeze — local | grep -v ‘^\-e’ | cut -d = -f 1 | xargs -n1 pip install -U; sudo softwareupdate -i -a; brew update; brew upgrade; brew cask upgrade; brew cask cleanup; brew cleanup;'
 alias flush='dscacheutil -flushcache && killall -HUP mDNSResponder'
 alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
 alias reload='exec $(which zsh) -l'
