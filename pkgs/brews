@@ -38,3 +38,4 @@ terraform
 ipmitool
 ipmiview
 yarn
+pwgen
