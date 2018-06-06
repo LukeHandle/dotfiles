@@ -2,7 +2,6 @@ google-chrome
 visual-studio-code
 discord
 alfred
-docker
 spotify
 1password
 iterm2-beta
@@ -27,7 +26,6 @@ playmemories-home
 irccloud
 vmware-remote-console
 transmit
-minikube
 virtualbox
 minecraft
 angry-ip-scanner
@@ -42,3 +40,4 @@ vagrant
 yubico-yubikey-personalization-gui
 kiibohd-configurator
 signal
+docker-edge
