@@ -26,7 +26,6 @@ zsh
 sslmate
 vips
 b2-tools
-go-delve/delve/delve
 dep
 tig
 ykpers
@@ -37,5 +36,4 @@ pinentry-mac
 terraform
 ipmitool
 ipmiview
-yarn
 pwgen
