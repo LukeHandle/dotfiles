@@ -21,7 +21,6 @@ battle-net
 slack
 synergy
 steam
-ffxiv
 playmemories-home
 irccloud
 vmware-remote-console
@@ -41,3 +40,5 @@ yubico-yubikey-personalization-gui
 kiibohd-configurator
 signal
 docker-edge
+mplayerx
+mullvadvpn
