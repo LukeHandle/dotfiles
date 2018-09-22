@@ -62,4 +62,4 @@ export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
 gpg-connect-agent /bye
 
 # Go
-export GO111MODULE=on
+export GO111MODULE=auto
