@@ -14,19 +14,17 @@ function setup_env {
   link $DOTFILES_SHELL/zshrc $HOME/.zshrc
 
   einf "Linking editor configs"
+  mkdir -p $HOME/Library/Application\ Support/Code/User
   # VSCode Configuration File, attempt to remove existing settings and link ours
-  mv $HOME/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json.bak
+  mv $HOME/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json.bak >/dev/null
   link $DOTFILES_EDITORS/vscode.json $HOME/Library/Application\ Support/Code/User/settings.json
 
   einf "Linking github configs"
   link $DOTFILES_SHELL/gitconfig $HOME/.gitconfig
 
   einf "Linking ssh_config"
-  mkdir -p $HOME/.ssh
+  mkdir -p $HOME/.ssh/sock
   link $DOTFILES_SHELL/ssh_config $HOME/.ssh/config
-
-  einf "Linking spectacle config"
-  link $DOTFILES_SHELL/spectacle.json $HOME/Library/Application\ Support/Spectacle/Shortcuts.json
 
   einf "Setting up gnupg"
   mkdir -p $HOME/.gnupg

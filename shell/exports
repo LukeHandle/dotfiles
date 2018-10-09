@@ -45,9 +45,9 @@ $(_user_host)${_current_dir} $(git_prompt_info) $(virtualenv_prompt_info)
 %{$fg[$CARETCOLOR]%}▶%{$resetcolor%} '
 
 # GPG
-export "GPG_TTY=$(tty)"
-export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
-gpg-connect-agent /bye
+#export "GPG_TTY=$(tty)"
+#export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
+#gpg-connect-agent /bye
 
 # Go
 export GO111MODULE=auto
