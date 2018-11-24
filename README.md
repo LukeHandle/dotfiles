@@ -7,7 +7,7 @@ And more originally [https://github.com/nijikokun/dotfiles](https://github.com/n
 ## Installation
 
 ```bash
-git clone https://github.com/DMarby/dotfiles.git ~/.dotfiles
+git clone https://github.com/LukeHandle/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 make install
 ```
