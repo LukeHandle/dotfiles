@@ -17,7 +17,7 @@ antigen bundle docker-compose
 antigen bundle virtualenv
 antigen bundle virtualenvwrapper
 antigen bundle z
-antigen bundle command-not-found
+#antigen bundle command-not-found
 antigen bundle zchee/go-zsh-completions
 antigen bundle kubectl
 antigen bundle tonyseek/oh-my-zsh-virtualenv-prompt
