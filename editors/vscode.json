@@ -1,7 +1,16 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "editor.tabSize": 2,
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+    "terminal.explorerKind": "external",
+    "workbench.colorTheme": "Solarized Dark",
+    "editor.multiCursorModifier": "alt",
+    "editor.rulers": [
+        80,
+        120
+    ],
     "editor.insertSpaces": true,
+    "extensions.ignoreRecommendations": false,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -12,22 +21,26 @@
         "**/.terraform": true,
         "**/*.retry": true
     },
+    "files.associations": {
+        "*.md.txt": "markdown"
+    },
     "files.trimTrailingWhitespace": true,
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
     "files.insertFinalNewline": true,
-    "window.openFoldersInNewWindow": "on",
     "[markdown]": {
         "files.trimTrailingWhitespace": false
     },
+    "window.openFoldersInNewWindow": "on",
     "python.pythonPath": "~/.dotfiles/virtualenvs/venv/bin/python",
     "go.useLanguageServer": true,
     "go.useCodeSnippetsOnFunctionSuggest": false,
-    "go.docsTool": "gogetdoc",
+    "go.formatTool": "goimports",
     "go.enableCodeLens": {
         "references": true,
         "runtest": true
     },
-    "editor.multiCursorModifier": "alt",
+    "todohighlight.keywords": [
+        "Todo"
+    ],
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,

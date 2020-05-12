@@ -1,12 +1,7 @@
-PeterJausovec.vscode-docker
-djabraham.vscode-yaml-validation
-lukehoban.go
-mohsen1.prettify-json
-ms-vscode.cpptools
-jcbuisson.vue
-selzoc.ginkgo-lens
+ms-vscode.Go
 ms-python.python
-onsi.vscode-ginkgo
-mauve.terraform
+PeterJausovec.vscode-docker
+mohsen1.prettify-json
 eamodio.gitlens
-octref.vetur
+emilast.LogFileHighlighter
+wayou.vscode-todo-highlight

@@ -1,6 +1,8 @@
 # Dotfiles
 
-Based on [https://github.com/nijikokun/dotfiles](https://github.com/nijikokun/dotfiles)
+Based on [https://github.com/DMarby/dotfiles](https://github.com/DMarby/dotfiles)
+And more originally [https://github.com/nijikokun/dotfiles](https://github.com/nijikokun/dotfiles)
+
 
 ## Installation
 

@@ -1,5 +1,13 @@
 github.com/mitchellh/gox
 github.com/tcnksm/ghr
-github.com/vmware/govmomi/govc
-github.com/adammck/terraform-inventory
 github.com/derekparker/delve/cmd/dlv
+github.com/mdempsky/gocode
+github.com/ramya-rao-a/go-outline
+github.com/acroca/go-symbols
+github.com/uudashr/gopkgs/cmd/gopkgs
+golang.org/x/tools/cmd/guru
+golang.org/x/tools/cmd/gorename
+golang.org/x/tools/cmd/godoc
+golang.org/x/lint/golint
+github.com/sqs/goreturns
+github.com/rogpeppe/godef

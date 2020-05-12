@@ -19,9 +19,6 @@ function uninstall_env {
   einf "Unlinking github configs"
   rm -f $HOME/.gitconfig
 
-  einf "Unlinking karabiner"
-  rm -f $HOME/.config/karabiner/karabiner.json
-
   einf "Unlinking ssh_config"
   rm -f $HOME/.ssh/config
 
@@ -33,10 +30,7 @@ function uninstall_env {
   rm -f $HOME/.gnupg/gpg-agent.conf
 
   einf "Removing gopath"
-  rm -f $HOME/go/src/github.com/DMarby
-
-  einf "Removing ovftool"
-  rm -f /usr/local/bin/ovftool
+  rm -f $HOME/go/src/github.com/LukeHandle
 
   einf "Changing shell back to bash"
   chsh -s /bin/bash

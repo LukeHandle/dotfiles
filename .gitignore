@@ -4,3 +4,6 @@ virtualenvs
 shell/Alfred.alfredpreferences/*
 !shell/Alfred.alfredpreferences/preferences
 !shell/Alfred.alfredpreferences/workflows
+!shell/Alfred.alfredpreferences/resources
+!shell/Alfred.alfredpreferences/snippets/
+shell/Alfred.alfredpreferences/snippets/*

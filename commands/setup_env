@@ -21,10 +21,6 @@ function setup_env {
   einf "Linking github configs"
   link $DOTFILES_SHELL/gitconfig $HOME/.gitconfig
 
-  einf "Linking karabiner config"
-  mkdir -p $HOME/.config/karabiner
-  link $DOTFILES_SHELL/karabiner.json $HOME/.config/karabiner/karabiner.json
-
   einf "Linking ssh_config"
   mkdir -p $HOME/.ssh
   link $DOTFILES_SHELL/ssh_config $HOME/.ssh/config
@@ -42,12 +38,9 @@ function setup_env {
 
   einf "Setting up gopath"
   mkdir -p $HOME/go/src/github.com
-  if [ ! -L $HOME/go/src/github.com/DMarby ]; then
-    link $HOME/Projects $HOME/go/src/github.com/DMarby
+  if [ ! -L $HOME/go/src/github.com/LukeHandle ]; then
+    link $HOME/Projects $HOME/go/src/github.com/LukeHandle
   fi
-
-  einf "Linking ovftool"
-  link /Applications/VMware\ OVF\ Tool/ovftool /usr/local/bin/ovftool
 
   einf "Changing shell to zsh"
   sudo -v
@@ -55,6 +48,7 @@ function setup_env {
   chsh -s /usr/local/bin/zsh
 
   einf "Open iTerm 2, set the custom configuration folder to ~/.dotfiles/shell"
+  einf "Open BetterTouchTool, import Preset ~/.dotfiles/shell/Default.bttpreset"
 }
 
 askdo setup_env "Setup environment?"
