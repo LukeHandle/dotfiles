@@ -34,6 +34,7 @@ export GOBIN=$GOPATH/bin
 path_append $GOBIN
 
 # Python
+export PYTHONSTARTUP=~/.pythonrc
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/Library/Caches/pip
 

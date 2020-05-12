@@ -26,6 +26,9 @@ function setup_env {
   #mkdir -p $HOME/.pip
   #link $DOTFILES_SHELL/pip.conf $HOME/.pip/pip.conf
 
+  einf "Linking pythonrc"
+  link $DOTFILES_SHELL/pythonrc $HOME/.pythonrc
+
   einf "Linking ssh_config"
   mkdir -p $HOME/.ssh/sock
   link $DOTFILES_SHELL/ssh_config $HOME/.ssh/config
