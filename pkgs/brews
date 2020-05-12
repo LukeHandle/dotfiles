@@ -7,6 +7,7 @@ openssl
 readline
 direnv
 jq
+ag
 pass
 xz
 sshuttle

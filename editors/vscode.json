@@ -31,6 +31,7 @@
     },
     "window.openFoldersInNewWindow": "on",
     "python.pythonPath": "~/.dotfiles/virtualenvs/venv/bin/python",
+    "python.venvPath": "~/.virtualenvs/",
     "go.useLanguageServer": true,
     "go.useCodeSnippetsOnFunctionSuggest": false,
     "go.formatTool": "goimports",

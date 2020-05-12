@@ -19,8 +19,12 @@ function setup_env {
   mv $HOME/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json.bak >/dev/null
   link $DOTFILES_EDITORS/vscode.json $HOME/Library/Application\ Support/Code/User/settings.json
 
-  einf "Linking github configs"
+  einf "Linking Git config"
   link $DOTFILES_SHELL/gitconfig $HOME/.gitconfig
+
+  #einf "Linking pip config"
+  #mkdir -p $HOME/.pip
+  #link $DOTFILES_SHELL/pip.conf $HOME/.pip/pip.conf
 
   einf "Linking ssh_config"
   mkdir -p $HOME/.ssh/sock
@@ -37,7 +41,8 @@ function setup_env {
   einf "Setting up gopath"
   mkdir -p $HOME/go/src/github.com
   if [ ! -L $HOME/go/src/github.com/LukeHandle ]; then
-    link $HOME/Projects $HOME/go/src/github.com/LukeHandle
+    mkdir -p $HOME/Projects/Go
+    link $HOME/Projects/Go $HOME/go/src/github.com/LukeHandle
   fi
 
   einf "Changing shell to zsh"
