@@ -75,7 +75,27 @@ p() {
   fi
 }
 
-workon_empty() {
+workon_empty2() {
+  local venv_path="$HOME/.virtualenvs/$@"
+  if [ -d ${venv_path} ]; then
+    rm ${venv_path}/.Python
+    rm ${venv_path}/bin/python{,2*}
+    rm ${venv_path}/bin/pip{,2*}
+    rm ${venv_path}/include/python2*
+    rm ${venv_path}/lib/python2*/*
+    rm ${venv_path}/lib/python2*/site-packages/easy_install.*
+    rm -r ${venv_path}/lib/python2*/distutils/
+    rm -r ${venv_path}/lib/python2*/site-packages/pip/
+    rm -r ${venv_path}/lib/python2*/site-packages/pip-*.dist-info/
+    rm -r ${venv_path}/lib/python2*/site-packages/setuptools/
+    rm -r ${venv_path}/lib/python2*/site-packages/setuptools-*.dist-info/
+    echo
+    echo "Try \"mkvirtualenv --python=\$(which python2.7) $@\" or whichever version"
+
+  fi
+}
+
+workon_empty3() {
   local venv_path="$HOME/.virtualenvs/$@"
   if [ -d ${venv_path} ]; then
     rm ${venv_path}/.Python
@@ -90,7 +110,7 @@ workon_empty() {
     rm -r ${venv_path}/lib/python3*/site-packages/setuptools/
     rm -r ${venv_path}/lib/python3*/site-packages/setuptools-*.dist-info/
     echo
-    echo "Try \"mkvirtualenv --python=\$(which python3.7) $@\" which whichever version"
+    echo "Try \"mkvirtualenv --python=\$(which python3.7) $@\" or whichever version"
     echo " or \"mkvirtualenv --python=/usr/local/opt/python36/bin/python3.6 $@\" which whichever version"
 
   fi
