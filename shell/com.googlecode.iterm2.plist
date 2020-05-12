@@ -202,10 +202,12 @@
 	</dict>
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>0 125 224 280 0 0 1440 877 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>97 14 597 411 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>267 195 1018 447 0 0 1440 877 </string>
+	<string>267 169 1016 512 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 47 717 830 0 0 1440 877 </string>
+	<string>0 425 1440 453 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -911,6 +913,8 @@
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>Allow Title Setting</key>
+			<true/>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -1117,6 +1121,8 @@
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
+			<key>Badge Text</key>
+			<string></string>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
@@ -1240,6 +1246,8 @@
 			<false/>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Initial Text</key>
+			<string></string>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -1310,6 +1318,13 @@
 					<integer>10</integer>
 					<key>Text</key>
 					<string>[2~</string>
+				</dict>
+				<key>0x74-0x100000</key>
+				<dict>
+					<key>Action</key>
+					<integer>27</integer>
+					<key>Text</key>
+					<string>A8412836-5B35-46DD-B9EC-B1B01153CD17</string>
 				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
@@ -1562,7 +1577,7 @@
 			<key>Normal Font</key>
 			<string>Monaco 12</string>
 			<key>Only The Default BG Color Uses Transparency</key>
-			<false/>
+			<true/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1618,7 +1633,7 @@
 			<key>Thin Strokes</key>
 			<integer>1</integer>
 			<key>Transparency</key>
-			<real>0.13446819479695432</real>
+			<real>0.182741116751269</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
@@ -1683,7 +1698,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>~/.dotfiles/shell</string>
+	<string>/Users/lukeh/.dotfiles/shell</string>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
