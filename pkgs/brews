@@ -24,5 +24,6 @@ gnupg
 ykman
 pinentry-mac
 pwgen
+pv
 wireguard-tools
 sashkab/python/python36
