@@ -12,7 +12,7 @@ TAP_PACKAGES=$DOTFILES_PACKAGES/taps
 BREW_PACKAGES=$DOTFILES_PACKAGES/brews
 CASK_PACKAGES=$DOTFILES_PACKAGES/casks
 CODE_PACKAGES=$DOTFILES_PACKAGES/vscode
-MAS_PACKAGES=$DOTFILES_PACKAGES/mas
+APT_PACKAGES=$DOTFILES_PACKAGES/apt
 PIP_PACKAGES=$DOTFILES_PACKAGES/pip
 GO_PACKAGES=$DOTFILES_PACKAGES/go
 NPM_PACKAGES=$DOTFILES_PACKAGES/npm
@@ -34,4 +34,39 @@ function askdo {
   eask "$2"
   read -r choice
   case "$choice" in y|Y|yes|yeah ) $1; return;; esac
+}
+
+# Check OS is X before asking to perform the action
+function askdo_os {
+  if ! _is_os $1; then
+    einf "Skipping ${2} as OS is $(whatos)"
+    return
+  fi
+
+  askdo "$2" "$3"
+}
+
+# What OS
+function whatos {
+  unameOut="$(uname -s)"
+  case "${unameOut}" in
+      Linux*)     machine=Linux;;
+      Darwin*)    machine=Mac;;
+      CYGWIN*)    machine=Cygwin;;
+      MINGW*)     machine=MinGw;;
+      *)          machine="UNKNOWN:${unameOut}"
+  esac
+  echo ${machine}
+}
+
+function _is_os {
+  if [ "$(whatos)" = "$1" ]; then return 0; else return 1; fi
+}
+
+function is_mac {
+  return $(_is_os "Mac")
+}
+
+function is_linux {
+  return $(_is_os "Linux")
 }

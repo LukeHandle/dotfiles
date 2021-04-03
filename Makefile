@@ -3,6 +3,7 @@
 install:
 	@${MAKE} install_brew
 	@${MAKE} install_packages
+	@${MAKE} install_apt_packages
 	@${MAKE} install_cask
 	@${MAKE} install_managers
 	@${MAKE} install_python
@@ -13,34 +14,37 @@ install:
 	@${MAKE} setup_os
 
 install_brew:
-	@sh ./commands/install_brew
+	@bash ./commands/install_brew
 
 install_packages:
-	@sh ./commands/install_brew_packages
+	@bash ./commands/install_brew_packages
+
+install_apt_packages:
+	@bash ./commands/install_apt_packages
 
 install_cask:
-	@sh ./commands/install_casks
+	@bash ./commands/install_casks
 
 install_managers:
-	@sh ./commands/install_managers
+	@bash ./commands/install_managers
 
 install_python:
-	@sh ./commands/install_python
+	@bash ./commands/install_python
 
 install_python_packages:
-	@sh ./commands/install_python_packages
+	@bash ./commands/install_python_packages
 
 install_go_packages:
-	@sh ./commands/install_go_packages
+	@bash ./commands/install_go_packages
 
 install_vscode_extensions:
-	@sh ./commands/install_vscode_extensions
+	@bash ./commands/install_vscode_extensions
 
 setup_env:
-	@sh ./commands/setup_env
+	@bash ./commands/setup_env
 
 setup_os:
-	@sh ./commands/setup_os
+	@bash ./commands/setup_os
 
 uninstall_env:
-	@sh ./commands/uninstall_env
+	@bash ./commands/uninstall_env

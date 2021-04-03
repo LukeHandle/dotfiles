@@ -19,4 +19,4 @@ function install_brew {
   einf "Brew installed successfully"
 }
 
-askdo install_brew "Install brew?"
+askdo_os Mac install_brew "Install brew?"

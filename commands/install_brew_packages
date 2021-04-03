@@ -19,4 +19,4 @@ function install_brew_packages {
   cat $BREW_PACKAGES | xargs brew install
 }
 
-askdo install_brew_packages "Install brew packages?"
+askdo_os Mac install_brew_packages "Install brew packages?"

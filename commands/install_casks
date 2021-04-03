@@ -27,4 +27,4 @@ function install_casks {
 
 }
 
-askdo install_casks "Install brew cask packages?"
+askdo_os Mac install_casks "Install brew cask packages?"

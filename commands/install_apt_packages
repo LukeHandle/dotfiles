@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# import helpers
+source `dirname $0`/helpers
+
+# Install brew
+function install_apt_packages {
+  if ! type "apt-get" &> /dev/null; then
+    eerr "apt-get must be installed first..."; exit 1
+  fi
+
+  einf "Updating apt-get"
+  sudo apt-get update
+
+  einf "Installing apt packages"
+  sudo -v
+  cat $APT_PACKAGES | xargs sudo apt-get install -y
+}
+
+askdo_os Linux install_apt_packages "Install apt packages?"

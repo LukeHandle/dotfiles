@@ -4,9 +4,9 @@
 source `dirname $0`/helpers
 
 # Install brew
-function setup_os {
+function setup_mac_os {
   einf "Configuring macOS"
   sh $DOTFILES_SHELL/macos
 }
 
-askdo setup_os "Setup os?"
+askdo_os Mac setup_mac_os "Setup Mac os?"

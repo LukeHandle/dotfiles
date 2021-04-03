@@ -3,7 +3,23 @@
 # import helpers
 source `dirname $0`/helpers
 
-# Install brew
+function setup_editor {
+  if is_mac; then
+    VSCODE_PATH="${HOME}/Library/Application\ Support/Code/User"
+  elif [ -d "${HOME}/.vscode-server" ]; then
+    VSCODE_PATH="${HOME}/.vscode-server/data/Machine"
+  else
+    VSCODE_PATH="${HOME}/.config/Code/User"
+  fi
+
+  einf "Linking editor configs"
+  mkdir -p $VSCODE_PATH
+  # VSCode Configuration File, attempt to remove existing settings and link ours
+  mv $VSCODE_PATH/settings.json $VSCODE_PATH/settings.json.bak >/dev/null
+  link $DOTFILES_EDITORS/vscode.json $VSCODE_PATH/settings.json
+}
+
+# Setup generic OS
 function setup_env {
   einf "Linking shell configs"
   link $DOTFILES_SHELL/functions $HOME/.functions.sh
@@ -12,12 +28,9 @@ function setup_env {
   link $DOTFILES_SHELL/antigen $HOME/.antigen.sh
   link $DOTFILES_SHELL/profile $HOME/.profile
   link $DOTFILES_SHELL/zshrc $HOME/.zshrc
+  link $DOTFILES_SHELL/p10k_conf $HOME/.p10k.zsh
 
-  einf "Linking editor configs"
-  mkdir -p $HOME/Library/Application\ Support/Code/User
-  # VSCode Configuration File, attempt to remove existing settings and link ours
-  mv $HOME/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json.bak >/dev/null
-  link $DOTFILES_EDITORS/vscode.json $HOME/Library/Application\ Support/Code/User/settings.json
+  setup_editor
 
   einf "Linking Git config"
   link $DOTFILES_SHELL/gitconfig $HOME/.gitconfig
@@ -48,13 +61,18 @@ function setup_env {
     link $HOME/Projects/Go $HOME/go/src/github.com/LukeHandle
   fi
 
+  
   einf "Changing shell to zsh"
-  sudo -v
-  echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells
-  chsh -s /usr/local/bin/zsh
+  if is_mac; then
+    sudo -v
+    echo "$(which zsh)" | sudo tee -a /etc/shells
+  fi
+  chsh -s $(which zsh)
 
-  einf "Open iTerm 2, set the custom configuration folder to ~/.dotfiles/shell"
-  einf "Open BetterTouchTool, import Preset ~/.dotfiles/shell/Default.bttpreset"
+  if is_mac; then
+    einf "Open iTerm 2, set the custom configuration folder to ~/.dotfiles/shell"
+    einf "Open BetterTouchTool, import Preset ~/.dotfiles/shell/Default.bttpreset"
+  fi
 }
 
 askdo setup_env "Setup environment?"
