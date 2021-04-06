@@ -14,7 +14,7 @@ function install_apt_packages {
 
   einf "Installing apt packages"
   sudo -v
-  cat $APT_PACKAGES | xargs sudo apt-get install -y
+  grep -v '^#' $APT_PACKAGES | xargs sudo apt-get install --no-install-recommends -y
 }
 
 askdo_os Linux install_apt_packages "Install apt packages?"

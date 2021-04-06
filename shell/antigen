@@ -23,6 +23,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Bundles
 #antigen bundle brew
 antigen bundle emoji
+antigen bundle pyenv
 #antigen bundle virtualenv
 #antigen bundle virtualenvwrapper
 antigen bundle z

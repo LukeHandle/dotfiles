@@ -3,8 +3,19 @@
 # import helpers
 source `dirname $0`/helpers
 
-# Install python
+
+# Choose Python install method
 function install_python {
+  if is_mac; then
+    install_mac_python
+  elif is_linux; then
+    install_linux_python
+  else
+    einf "Python install is only Mac/Linux"
+  fi
+}
+
+function install_mac_python {
   if type "pip" &> /dev/null; then
     einf "Python already installed... skipping"
   else
@@ -27,6 +38,22 @@ function install_python {
 
   source /usr/local/bin/virtualenvwrapper.sh
   mkvirtualenv --python=`which python3` venv
+}
+
+
+function install_linux_python {
+  LATEST_STABLE="3.9.4"
+
+  export PYENV_ROOT="${HOME}/.pyenv"
+  export PATH="${PYENV_ROOT}/bin:$PATH"
+
+  curl -sL https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+
+  pyenv install 3.7.10
+  pyenv install ${LATEST_STABLE}
+  pyenv global ${LATEST_STABLE}
+
+  pyenv virtualenv ${LATEST_STABLE} venv
 }
 
 askdo install_python "Install python?"
