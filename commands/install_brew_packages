@@ -13,10 +13,10 @@ function install_brew_packages {
   brew update
 
   einf "Tapping brews"
-  cat $TAP_PACKAGES | xargs -L 1 brew tap
+  grep -v '^#' $TAP_PACKAGES | xargs -L 1 brew tap
 
   einf "Installing brew packages"
-  cat $BREW_PACKAGES | xargs brew install
+  grep -v '^#' $BREW_PACKAGES | xargs brew install
 }
 
 askdo_os Mac install_brew_packages "Install brew packages?"

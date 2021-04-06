@@ -13,7 +13,7 @@ function install_casks {
   brew update
 
   einf "Installing brew cask packages"
-  cat $CASK_PACKAGES | \
+  grep -v '^#' $CASK_PACKAGES | \
   while read CASK; do
     printf "Installing $CASK... "
 

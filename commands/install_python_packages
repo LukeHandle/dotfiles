@@ -16,7 +16,7 @@ function install_python_packages {
   export PIP_DOWNLOAD_CACHE=$HOME/Library/Caches/pip
 
   einf "Installing python packages"
-  cat $PIP_PACKAGES | xargs pip install --upgrade
+  grep -v '^#' $PIP_PACKAGES | xargs pip install --upgrade
 }
 
 askdo install_python_packages "Install python packages?"

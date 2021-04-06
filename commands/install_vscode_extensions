@@ -10,7 +10,7 @@ function install_packages {
   fi
 
   einf "Installing VSCode packages"
-  cat $CODE_PACKAGES | xargs -L 1 code --install-extension
+  grep -v '^#' $CODE_PACKAGES | xargs -L 1 code --install-extension
 }
 
 askdo install_packages "Install VSCode extensions?"

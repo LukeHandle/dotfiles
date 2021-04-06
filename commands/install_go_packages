@@ -10,7 +10,7 @@ function install_go_packages {
   fi
 
   einf "Installing go packages"
-  cat $GO_PACKAGES | xargs go get
+  grep -v '^#' $GO_PACKAGES | xargs go get
 }
 
 askdo install_go_packages "Install go packages?"
