@@ -51,9 +51,10 @@ function install_linux_python {
 
   pyenv install 3.7.10
   pyenv install ${LATEST_STABLE}
-  pyenv global ${LATEST_STABLE}
+  #pyenv global ${LATEST_STABLE}
 
   pyenv virtualenv ${LATEST_STABLE} venv
+  pyenv global venv
 }
 
 askdo install_python "Install python?"

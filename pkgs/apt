@@ -12,6 +12,7 @@ zsh
 silversearcher-ag
 jq
 tmux
+htop
 direnv
 
 # pyenv

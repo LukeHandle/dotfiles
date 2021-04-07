@@ -22,13 +22,14 @@ function setup_editor {
 # Setup generic OS
 function setup_env {
   einf "Linking shell configs"
+  link $DOTFILES_SHELL/antigen $HOME/.antigen.sh
   link $DOTFILES_SHELL/functions $HOME/.functions.sh
   link $DOTFILES_SHELL/exports $HOME/.exports.sh
   link $DOTFILES_SHELL/aliases $HOME/.aliases.sh
-  link $DOTFILES_SHELL/antigen $HOME/.antigen.sh
+  mkdir $HOME/.secret
+  link $DOTFILES_SHELL/p10k_conf $HOME/.p10k.zsh
   link $DOTFILES_SHELL/profile $HOME/.profile
   link $DOTFILES_SHELL/zshrc $HOME/.zshrc
-  link $DOTFILES_SHELL/p10k_conf $HOME/.p10k.zsh
 
   setup_editor
 
@@ -61,7 +62,7 @@ function setup_env {
     link $HOME/Projects/Go $HOME/go/src/github.com/LukeHandle
   fi
 
-  
+
   einf "Changing shell to zsh"
   if is_mac; then
     sudo -v

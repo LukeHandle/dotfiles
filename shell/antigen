@@ -37,10 +37,12 @@ antigen bundle git
 # Completions
 antigen bundle golang
 antigen bundle pip
-antigen bundle doctl
 antigen bundle docker
 antigen bundle docker-compose
+antigen bundle doctl
+antigen bundle terraform
 antigen bundle kubectl
+antigen bundle helm
 
 # Themes
 #antigen theme robbyrussell/oh-my-zsh themes/avit
@@ -48,6 +50,3 @@ antigen theme romkatv/powerlevel10k
 
 # Apply
 antigen apply
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
