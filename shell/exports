@@ -26,16 +26,17 @@ export MANPAGER='less -X';
 # Path Sources
 path_append $HOME/.dotfiles/bin
 
-# GOPATH
+# Go / GOPATH
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 path_append $GOBIN
+export GO111MODULE=auto
 
 # Python
-export PYTHONSTARTUP=~/.pythonrc
+#export PYTHONSTARTUP=~/.pythonrc
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/Library/Caches/pip
-export WORKON_HOME=$HOME/.virtualenvs
+#export WORKON_HOME=$HOME/.virtualenvs
 
 PROMPT='
 $(_user_host)${_current_dir} $(git_prompt_info) $(virtualenv_prompt_info)
@@ -46,5 +47,3 @@ $(_user_host)${_current_dir} $(git_prompt_info) $(virtualenv_prompt_info)
 #export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
 #gpg-connect-agent /bye
 
-# Go
-export GO111MODULE=auto

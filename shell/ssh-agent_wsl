@@ -1,0 +1,11 @@
+# Lose inspiration from https://stuartleeks.com/posts/wsl-ssh-key-forward-to-windows/
+
+# Set ssh-agent path
+export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+
+if ! ssh-add -l &>/dev/null; then
+  echo "Refreshing WSL SSH Agent"
+  killall socat &>/dev/null
+  rm $SSH_AUTH_SOCK &>/dev/null
+  setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork
+fi

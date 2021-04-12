@@ -3,4 +3,5 @@ source $HOME/.functions.sh
 source $HOME/.exports.sh
 source $HOME/.aliases.sh
 source $HOME/.secret/*.sh
+source $HOME/ssh-agent.sh
 source $HOME/.p10k.zsh
