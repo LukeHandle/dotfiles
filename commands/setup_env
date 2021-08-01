@@ -27,6 +27,7 @@ function setup_env {
   link $DOTFILES_SHELL/exports $HOME/.exports.sh
   link $DOTFILES_SHELL/aliases $HOME/.aliases.sh
   mkdir -p $HOME/.secret
+  touch $HOME/empty.sh
   link $DOTFILES_SHELL/p10k_conf $HOME/.p10k.zsh
   link $DOTFILES_SHELL/profile $HOME/.profile
   link $DOTFILES_SHELL/zshrc $HOME/.zshrc

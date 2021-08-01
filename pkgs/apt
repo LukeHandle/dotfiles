@@ -15,6 +15,10 @@ tmux
 htop
 direnv
 
+# Visualization
+graphviz
+gv
+
 # pyenv
 build-essential
 libssl-dev
