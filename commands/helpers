@@ -23,9 +23,9 @@ FG='\033[1;34m'
 NC='\033[0m'
 
 # Logging functions
-function ewrn { echo "${FG}[${WARN}!${FG}] ${1}${NC}"; }
-function eerr { echo "${FG}[${WARN}x${FG}] ${1}${NC}"; }
-function einf { echo "${FG}[i] ${1}${NC}"; }
+function ewrn { printf "${FG}[${WARN}!${FG}] ${1}${NC}\n"; }
+function eerr { printf "${FG}[${WARN}x${FG}] ${1}${NC}\n"; }
+function einf { printf "${FG}[i] ${1}${NC}\n"; }
 function eask { printf "${FG}[?] ${1} (y/n)${NC} "; }
 function link { ln -sF "$1" "$2"; }
 

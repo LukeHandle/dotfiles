@@ -1,4 +1,4 @@
-.PHONY: install install_brew install_packages install_cask install_managers install_python setup_env setup_os install_vscode_extensions install_python_packages install_go_packages
+.PHONY: install install_brew install_packages install_cask install_managers install_python setup_env setup_os install_vscode_extensions install_python_packages install_go install_go_packages
 
 install:
 	@${MAKE} install_brew
@@ -8,6 +8,7 @@ install:
 	@${MAKE} install_managers
 	@${MAKE} install_python
 	@${MAKE} install_python_packages
+	@${MAKE} install_go
 	@${MAKE} install_go_packages
 	@${MAKE} install_vscode_extensions
 	@${MAKE} setup_env
@@ -33,6 +34,9 @@ install_python:
 
 install_python_packages:
 	@bash ./commands/install_python_packages
+
+install_go:
+	@bash ./commands/install_go
 
 install_go_packages:
 	@bash ./commands/install_go_packages

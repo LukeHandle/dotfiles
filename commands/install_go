@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# import helpers
+source `dirname $0`/helpers
+
+GO_VERSION=1.16.6
+
+# Choose Go install method
+function install_go {
+  if is_linux; then
+    install_linux_go
+  else
+    einf "Go install is only Linux"
+  fi
+}
+
+function install_linux_go {
+  sudo -v
+  einf "Download Go ${GO_VERSION}..."
+  GO_DL_URL="https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz"
+  GO_DL_PATH="/tmp/go${GO_VERSION}.linux-amd64.tar.gz"
+
+  echo
+  curl -L -o ${GO_DL_PATH} ${GO_DL_URL}
+  if [ $? -ne 0 ]; then
+    eerr "Download of ${GO_DL_URL} failed... $?"
+    eerr "Command: curl -L -o ${GO_DL_PATH} ${GO_DL_URL}"
+    return
+  fi
+
+  sudo -v
+  if [ -d /usr/local/go ]; then
+    einf "Go already installed, removing first..."
+    sudo rm -rf /usr/local/go
+  fi
+
+  einf "Install Go to /usr/local/go..."
+  sudo tar -C /usr/local -xzf ${GO_DL_PATH}
+  if [ $? -ne 0 ]; then
+    eerr "Untar of ${GO_DL_PATH} failed..."
+    return
+  fi
+
+  rm -f ${GO_DL_PATH}
+  einf "Go install complete"
+  /usr/local/go/bin/go version
+}
+
+
+
+askdo install_go "Install Go?"
