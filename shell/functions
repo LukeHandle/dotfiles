@@ -75,6 +75,10 @@ p() {
   fi
 }
 
+j_optim() {
+  jpegoptim -d /mnt/c/Users/lukeh/Pictures/jpegoptim/ -s -t $@
+}
+
 workon_empty2() {
   local venv_path="$HOME/.virtualenvs/$@"
   if [ -d ${venv_path} ]; then

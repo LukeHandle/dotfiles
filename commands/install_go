@@ -3,11 +3,18 @@
 # import helpers
 source `dirname $0`/helpers
 
-GO_VERSION=1.16.6
+GO_VERSION=1.17
 
 # Choose Go install method
 function install_go {
   if is_linux; then
+
+      if type "/usr/local/go/bin/go" &> /dev/null; then
+        einf "Go already installed..! ($(/usr/local/go/bin/go version))"
+        askdo install_linux_go "Force install Go ${GO_VERSION}?"
+        return
+      fi
+
     install_linux_go
   else
     einf "Go install is only Linux"

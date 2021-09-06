@@ -30,7 +30,8 @@ path_append $HOME/.dotfiles/bin
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 path_append $GOBIN
-export GO111MODULE=auto
+path_append /usr/local/go/bin
+#export GO111MODULE=auto
 
 # Python
 #export PYTHONSTARTUP=~/.pythonrc
