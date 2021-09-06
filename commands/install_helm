@@ -1,0 +1,65 @@
+#!/bin/sh
+
+# import helpers
+source `dirname $0`/helpers
+
+HELM_VERSION=v3.7.0-rc.2
+
+# Choose Helm install method
+function install_helm {
+  if is_linux; then
+
+      if type "/usr/local/bin/helm" &> /dev/null; then
+        einf "Helm already installed..! ($(/usr/local/bin/helm version))"
+        askdo install_linux_helm "Force install Helm ${HELM_VERSION}?"
+        return
+      fi
+
+    install_linux_helm
+  else
+    einf "Helm install is only Linux"
+  fi
+}
+
+function install_linux_helm {
+  sudo -v
+  einf "Download Helm ${HELM_VERSION}..."
+  HELM_DL_URL="https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz"
+  HELM_DL_PATH="/tmp/helm-${HELM_VERSION}-linux-amd64.tar.gz"
+  HELM_TEMP_PATH="/tmp/helm-${HELM_VERSION}"
+
+  echo
+  curl -L -o ${HELM_DL_PATH} ${HELM_DL_URL}
+  if [ $? -ne 0 ]; then
+    eerr "Download of ${HELM_DL_URL} failed... $?"
+    eerr "Command: curl -L -o ${HELM_DL_PATH} ${HELM_DL_URL}"
+    return
+  fi
+
+
+  einf "Unpacking Helm to ${HELM_TEMP_PATH}..."
+  mkdir ${HELM_TEMP_PATH}
+  tar -C ${HELM_TEMP_PATH} -xzf ${HELM_DL_PATH}
+  if [ $? -ne 0 ]; then
+    eerr "Untar of ${HELM_DL_PATH} failed..."
+    return
+  fi
+
+  sudo -v
+  if [ -f /usr/local/bin/helm ]; then
+    einf "Helm already installed, removing first..."
+    sudo rm -f /usr/local/bin/helm
+  fi
+
+  einf "Install Helm to /usr/local/bin/helm..."
+  sudo mv ${HELM_TEMP_PATH}/linux-amd64/helm /usr/local/bin/helm
+
+  rm -f ${HELM_DL_PATH}
+  rm -Rf ${HELM_TEMP_PATH}
+  einf "Helm install complete"
+  /usr/local/bin/helm version
+}
+
+
+
+askdo install_helm "Install Helm?"
