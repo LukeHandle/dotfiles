@@ -52,7 +52,7 @@ function install_linux_doctl {
   fi
 
   einf "Install doctl to /usr/local/bin/doctl..."
-  sudo mv ${DOCTL_TEMP_PATH}/doctl /usr/local/bin/doctl
+  sudo install -o root -g root -m 0755 ${DOCTL_TEMP_PATH}/doctl /usr/local/bin/doctl
 
   rm -f ${DOCTL_DL_PATH}
   rm -Rf ${DOCTL_TEMP_PATH}

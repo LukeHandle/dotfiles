@@ -10,7 +10,7 @@ function install_kubectl {
   if is_linux; then
 
       if type "/usr/local/bin/kubectl" &> /dev/null; then
-        einf "kubectl already installed..! ($(/usr/local/bin/kubectl version))"
+        einf "kubectl already installed..! ($(/usr/local/bin/kubectl version --short --client))"
         askdo install_linux_kubectl "Force install kubectl ${KUBECTL_VERSION}?"
         return
       fi
@@ -35,6 +35,15 @@ function install_linux_kubectl {
     return
   fi
 
+  einf "Verifying SHA256..."
+  KUBECTL_SHA256_URL="https://dl.k8s.io/${KUBECTL_VERSION}/bin/linux/amd64/kubectl.sha256"
+  KUBECTL_SHA256="$(curl -L ${KUBECTL_SHA256_URL})"
+  echo "${KUBECTL_SHA256} ${KUBECTL_DL_PATH}" | sha256sum --check
+  if [ $? -ne 0 ]; then
+    eerr "SHA256 validation failed... $?"
+    return
+  fi
+
   sudo -v
   if [ -f /usr/local/bin/kubectl ]; then
     einf "kubectl already installed, removing first..."
@@ -42,11 +51,12 @@ function install_linux_kubectl {
   fi
 
   einf "Install kubectl to /usr/local/bin/kubectl..."
-  sudo mv ${KUBECTL_DL_PATH} /usr/local/bin/kubectl
+  sudo install -o root -g root -m 0755 ${KUBECTL_DL_PATH} /usr/local/bin/kubectl
+
 
   rm -f ${KUBECTL_DL_PATH}
   einf "kubectl install complete"
-  /usr/local/bin/kubectl version
+  /usr/local/bin/kubectl version --short --client
 }
 
 

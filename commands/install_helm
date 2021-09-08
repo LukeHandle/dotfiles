@@ -10,7 +10,7 @@ function install_helm {
   if is_linux; then
 
       if type "/usr/local/bin/helm" &> /dev/null; then
-        einf "Helm already installed..! ($(/usr/local/bin/helm version))"
+        einf "Helm already installed..! ($(/usr/local/bin/helm version --short))"
         askdo install_linux_helm "Force install Helm ${HELM_VERSION}?"
         return
       fi
@@ -52,12 +52,12 @@ function install_linux_helm {
   fi
 
   einf "Install Helm to /usr/local/bin/helm..."
-  sudo mv ${HELM_TEMP_PATH}/linux-amd64/helm /usr/local/bin/helm
+  sudo install -o root -g root -m 0755 ${HELM_TEMP_PATH}/linux-amd64/helm /usr/local/bin/helm
 
   rm -f ${HELM_DL_PATH}
   rm -Rf ${HELM_TEMP_PATH}
   einf "Helm install complete"
-  /usr/local/bin/helm version
+  /usr/local/bin/helm version --short
 }
 
 
