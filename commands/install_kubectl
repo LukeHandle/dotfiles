@@ -1,0 +1,54 @@
+#!/bin/sh
+
+# import helpers
+source `dirname $0`/helpers
+
+KUBECTL_VERSION=$(curl -L -s https://dl.k8s.io/release/stable.txt)
+
+# Choose kubectl install method
+function install_kubectl {
+  if is_linux; then
+
+      if type "/usr/local/bin/kubectl" &> /dev/null; then
+        einf "kubectl already installed..! ($(/usr/local/bin/kubectl version))"
+        askdo install_linux_kubectl "Force install kubectl ${KUBECTL_VERSION}?"
+        return
+      fi
+
+    install_linux_kubectl
+  else
+    einf "kubectl install is only Linux"
+  fi
+}
+
+function install_linux_kubectl {
+  sudo -v
+  einf "Download kubectl ${KUBECTL_VERSION}..."
+  KUBECTL_DL_URL="https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
+  KUBECTL_DL_PATH="/tmp/kubectl-${KUBECTL_VERSION}"
+
+  echo
+  curl -L -o ${KUBECTL_DL_PATH} ${KUBECTL_DL_URL}
+  if [ $? -ne 0 ]; then
+    eerr "Download of ${KUBECTL_DL_URL} failed... $?"
+    eerr "Command: curl -L -o ${KUBECTL_DL_PATH} ${KUBECTL_DL_URL}"
+    return
+  fi
+
+  sudo -v
+  if [ -f /usr/local/bin/kubectl ]; then
+    einf "kubectl already installed, removing first..."
+    sudo rm -f /usr/local/bin/kubectl
+  fi
+
+  einf "Install kubectl to /usr/local/bin/kubectl..."
+  sudo mv ${KUBECTL_DL_PATH} /usr/local/bin/kubectl
+
+  rm -f ${KUBECTL_DL_PATH}
+  einf "kubectl install complete"
+  /usr/local/bin/kubectl version
+}
+
+
+
+askdo install_kubectl "Install kubectl?"
