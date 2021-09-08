@@ -1,0 +1,65 @@
+#!/bin/sh
+
+# import helpers
+source `dirname $0`/helpers
+
+DOCTL_VERSION=1.64.0
+
+# Choose doctl install method
+function install_doctl {
+  if is_linux; then
+
+      if type "/usr/local/bin/doctl" &> /dev/null; then
+        einf "doctl already installed..! ($(/usr/local/bin/doctl version))"
+        askdo install_linux_doctl "Force install doctl ${DOCTL_VERSION}?"
+        return
+      fi
+
+    install_linux_doctl
+  else
+    einf "doctl install is only Linux"
+  fi
+}
+
+function install_linux_doctl {
+  sudo -v
+  einf "Download doctl ${DOCTL_VERSION}..."
+  DOCTL_DL_URL="https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-amd64.tar.gz"
+  DOCTL_DL_PATH="/tmp/doctl-${DOCTL_VERSION}-linux-amd64.tar.gz"
+  DOCTL_TEMP_PATH="/tmp/doctl-${DOCTL_VERSION}"
+
+  echo
+  curl -L -o ${DOCTL_DL_PATH} ${DOCTL_DL_URL}
+  if [ $? -ne 0 ]; then
+    eerr "Download of ${DOCTL_DL_URL} failed... $?"
+    eerr "Command: curl -L -o ${DOCTL_DL_PATH} ${DOCTL_DL_URL}"
+    return
+  fi
+
+
+  einf "Unpacking doctl to ${DOCTL_TEMP_PATH}..."
+  mkdir ${DOCTL_TEMP_PATH}
+  tar -C ${DOCTL_TEMP_PATH} -xzf ${DOCTL_DL_PATH}
+  if [ $? -ne 0 ]; then
+    eerr "Untar of ${DOCTL_DL_PATH} failed..."
+    return
+  fi
+
+  sudo -v
+  if [ -f /usr/local/bin/doctl ]; then
+    einf "doctl already installed, removing first..."
+    sudo rm -f /usr/local/bin/doctl
+  fi
+
+  einf "Install doctl to /usr/local/bin/doctl..."
+  sudo mv ${DOCTL_TEMP_PATH}/doctl /usr/local/bin/doctl
+
+  rm -f ${DOCTL_DL_PATH}
+  rm -Rf ${DOCTL_TEMP_PATH}
+  einf "doctl install complete"
+  /usr/local/bin/doctl version
+}
+
+
+
+askdo install_doctl "Install doctl?"

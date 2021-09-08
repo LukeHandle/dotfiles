@@ -1,4 +1,4 @@
-.PHONY: install install_brew install_packages install_cask install_managers install_python setup_env setup_os install_vscode_extensions install_python_packages install_go install_go_packages install_helm
+.PHONY: install install_brew install_packages install_cask install_managers install_python setup_env setup_os install_vscode_extensions install_python_packages install_go install_go_packages install_doctl install_helm
 
 install:
 	@${MAKE} install_brew
@@ -11,6 +11,7 @@ install:
 	@${MAKE} install_go
 	@${MAKE} install_go_packages
 	@${MAKE} install_vscode_extensions
+	@${MAKE} install_doctl
 	@${MAKE} install_helm
 	@${MAKE} setup_env
 	@${MAKE} setup_os
@@ -44,6 +45,9 @@ install_go_packages:
 
 install_vscode_extensions:
 	@bash ./commands/install_vscode_extensions
+
+install_doctl:
+	@bash ./commands/install_doctl
 
 install_helm:
 	@bash ./commands/install_helm
