@@ -13,7 +13,7 @@ function install_brew_packages {
   brew update
 
   einf "Tapping brews"
-  grep -v '^#' $TAP_PACKAGES | xargs -L 1 brew tap
+  grep -v '^#' $BREW_TAPS | xargs -L 1 brew tap
 
   einf "Installing brew packages"
   grep -v '^#' $BREW_PACKAGES | xargs brew install

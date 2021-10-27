@@ -9,6 +9,15 @@ function install_apt_packages {
     eerr "apt-get must be installed first..."; exit 1
   fi
 
+  if [ "$(lsb_release -cs)" = "bionic" ]; then
+    einf "Adding apt keys"
+    grep -v '^#' $APT_KEY_LISTS | xargs -L 1 curl -fsSL | sudo apt-key add -
+    einf "Adding apt lists"
+    grep -v '^#' $APT_LISTS | xargs -I {} sudo add-apt-repository {}
+  else
+    einf "System in not bionic - not adding apt lists"
+  fi
+
   einf "Updating apt-get"
   sudo apt-get update
 

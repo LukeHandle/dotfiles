@@ -35,3 +35,9 @@ libxml2-dev
 libxmlsec1-dev
 libffi-dev
 liblzma-dev
+
+# Requires the Docker apt list
+docker-ce
+
+# Requires HashiCorp apt list
+terraform

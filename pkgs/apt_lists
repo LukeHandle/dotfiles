@@ -1,0 +1,7 @@
+# Bionic specific... :grimacing:
+
+# Docker CE
+deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+
+# HashiCorp (eg. Terraform)
+deb [arch=amd64] https://apt.releases.hashicorp.com bionic main
