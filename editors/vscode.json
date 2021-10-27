@@ -2,14 +2,16 @@
 {
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-    "terminal.explorerKind": "external",
-    "terminal.integrated.fontFamily": "Hack NF",
+    "terminal.external.linuxExec": "xfce4-terminal",
+    "terminal.integrated.fontFamily": "'Hack NF', 'DejaVu Sans Mono', 'MesloLGS NF'",
     "workbench.colorTheme": "Solarized Dark",
     "editor.multiCursorModifier": "alt",
     "editor.rulers": [
         80,
         120
     ],
+    "editor.bracketPairColorization.enabled": true,
+    "editor.emptySelectionClipboard": false,
     "editor.insertSpaces": true,
     "extensions.ignoreRecommendations": false,
     "files.exclude": {
@@ -35,9 +37,7 @@
     "python.venvPath": "~/.pyenv/",
     "go.useLanguageServer": true,
     "go.useCodeSnippetsOnFunctionSuggest": false,
-    "go.formatTool": "goimports",
     "go.enableCodeLens": {
-        "references": true,
         "runtest": true
     },
     "todohighlight.keywords": [
@@ -50,10 +50,10 @@
         "suppressGitVersionWarning": false,
         "suppressLineUncommittedWarning": false,
         "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true
     },
-    "gitlens.historyExplorer.enabled": true,
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": true
+    "gopls": {
+        "ui.diagnostic.analyses": {
+            "fieldalignment": true
+        }
+    }
 }

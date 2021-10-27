@@ -3,7 +3,7 @@
 # import helpers
 source `dirname $0`/helpers
 
-GO_VERSION=1.17
+GO_VERSION=1.17.2
 
 # Choose Go install method
 function install_go {
