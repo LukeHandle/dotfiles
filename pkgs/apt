@@ -41,3 +41,6 @@ docker-ce
 
 # Requires HashiCorp apt list
 terraform
+
+# Requires the 1Password apt list
+1password
