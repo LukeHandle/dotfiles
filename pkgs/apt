@@ -15,6 +15,7 @@ tmux
 htop
 direnv
 jpegoptim
+pwgen
 
 # Visualization
 graphviz
