@@ -15,7 +15,7 @@ function setup_editor {
   einf "Linking editor configs"
   mkdir -p $VSCODE_PATH
   # VSCode Configuration File, attempt to remove existing settings and link ours
-  mv $VSCODE_PATH/settings.json $VSCODE_PATH/settings.json.bak >/dev/null
+  mv $VSCODE_PATH/settings.json $VSCODE_PATH/settings.json.bak &>/dev/null
   link $DOTFILES_EDITORS/vscode.json $VSCODE_PATH/settings.json
 }
 

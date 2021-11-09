@@ -10,7 +10,7 @@ jq
 ag
 pass
 xz
-sshuttle
+#sshuttle
 vim
 wget
 grep
@@ -26,4 +26,4 @@ pinentry-mac
 pwgen
 pv
 wireguard-tools
-sashkab/python/python36
+#sashkab/python/python36
