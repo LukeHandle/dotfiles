@@ -1,29 +1,38 @@
+# Essentials
 gnu-sed
 autoconf
 automake
 binutils
 gawk
+grep
 openssl
 readline
+vim
+zsh
+bash
+
+# Handy
+go
 direnv
+z
 jq
+mtr
 ag
 pass
 xz
 #sshuttle
-vim
 wget
-grep
+pwgen
+pv
+
+# Visualization
+graphviz
+gv
+
+# Security
 gpg
-go
-bash
-z
-zsh
 ykpers
 gnupg
 ykman
 pinentry-mac
-pwgen
-pv
 wireguard-tools
-#sashkab/python/python36

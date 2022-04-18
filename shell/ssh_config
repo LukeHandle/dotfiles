@@ -1,0 +1,12 @@
+
+Host *
+    User                lukeh
+    ControlMaster       auto
+    ControlPersist      300s
+    ControlPath         ~/.ssh/sock/%r@%h:%p
+    ConnectTimeout      10
+    Compression         Yes
+    ServerAliveCountMax 3
+    ServerAliveInterval 60
+    TCPKeepAlive        Yes
+    ForwardAgent        No

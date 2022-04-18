@@ -1,10 +1,10 @@
-.PHONY: install install_brew install_packages install_cask install_managers install_python setup_env setup_os install_vscode_extensions install_python_packages install_go install_go_packages install_kubectl install_doctl install_helm
+.PHONY: install install_brew install_brew_packages install_casks install_managers install_python setup_env setup_os install_vscode_extensions install_python_packages install_go install_go_packages install_kubectl install_doctl install_helm
 
 install:
 	@${MAKE} install_brew
-	@${MAKE} install_packages
+	@${MAKE} install_brew_packages
 	@${MAKE} install_apt_packages
-	@${MAKE} install_cask
+	@${MAKE} install_casks
 	@${MAKE} install_managers
 	@${MAKE} install_python
 	@${MAKE} install_python_packages
@@ -20,13 +20,13 @@ install:
 install_brew:
 	@bash ./commands/install_brew
 
-install_packages:
+install_brew_packages:
 	@bash ./commands/install_brew_packages
 
 install_apt_packages:
 	@bash ./commands/install_apt_packages
 
-install_cask:
+install_casks:
 	@bash ./commands/install_casks
 
 install_managers:

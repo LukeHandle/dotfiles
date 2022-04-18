@@ -21,7 +21,7 @@ function install_casks {
       printf "already installed\n"
     else
       printf "\n"
-      brew install $CASK
+      brew install --cask $CASK
     fi
   done
 

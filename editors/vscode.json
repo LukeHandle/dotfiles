@@ -34,6 +34,7 @@
     },
     "window.openFoldersInNewWindow": "on",
     "python.pythonPath": "~/.pyenv/versions/venv/bin/python",
+    "python.defaultInterpreterPath": "~/.pyenv/versions/venv/bin/python",
     "python.venvPath": "~/.pyenv/",
     "go.useLanguageServer": true,
     "go.useCodeSnippetsOnFunctionSuggest": false,
@@ -51,9 +52,17 @@
         "suppressLineUncommittedWarning": false,
         "suppressNoRepositoryWarning": false,
     },
+    "gitlens.historyExplorer.enabled": true,
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "gitlens.codeLens.scopes": [
+        "document"
+    ],
     "gopls": {
         "ui.diagnostic.analyses": {
             "fieldalignment": true
         }
-    }
+    },
+    "plantuml.server": "http://localhost:8080",
+    "plantuml.render": "PlantUMLServer",
 }
