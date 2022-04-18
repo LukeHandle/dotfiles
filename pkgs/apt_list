@@ -1,0 +1,4 @@
+# name,arch,key,repo,components
+#
+# 1Password
+1password,amd64,https://downloads.1password.com/linux/keys/1password.asc,https://downloads.1password.com/linux/debian/amd64,stable main

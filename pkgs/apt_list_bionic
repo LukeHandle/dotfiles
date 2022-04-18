@@ -1,0 +1,7 @@
+# name,arch,key,repo,components
+#
+# Docker CE
+docker,arch,https://download.docker.com/linux/ubuntu/gpg,https://download.docker.com/linux/ubuntu,bionic stable
+
+# HashiCorp (eg. Terraform)
+hashicorp,arch,https://apt.releases.hashicorp.com/gpg,https://apt.releases.hashicorp.com,bionic main

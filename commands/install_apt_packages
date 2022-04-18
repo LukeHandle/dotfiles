@@ -3,19 +3,69 @@
 # import helpers
 source `dirname $0`/helpers
 
-# Install brew
+function _add_apt_list {
+  if [ -n "$BASH_VERSION" ]; then
+      arr_opt=a
+  elif [ -n "$ZSH_VERSION" ]; then
+      arr_opt=A
+  fi
+
+  IFS=',' read -r"$arr_opt" apt_info <<< "$1"
+
+  # Bash and Zsh compatible way: https://stackoverflow.com/a/60756921
+  local list_name=${apt_info[@]:0:1}
+  local arch=${apt_info[@]:1:1}
+  local key_url=${apt_info[@]:2:1}
+  local list_url=${apt_info[@]:3:1}
+  local list_components=${apt_info[@]:4:1}
+
+  if [ -z "$list_name" ] || [ -z "$key_url" ] || [ -z "$list_url" ] || [ -z "$list_components" ]; then
+    eerr "_add_apt_list missing a var: $list_name,$key_url,$list_url,$list_components"; exit 1
+  fi
+
+  local key_path=/usr/share/keyrings/${list_name}.gpg
+  local sources_path=/etc/apt/sources.list.d/${list_name}.list
+  if [ "$arch" = "arch" ]; then
+    local arch=$(dpkg --print-architecture)
+  fi
+
+  einf "Adding apt key for $list_name"
+  curl -sS $key_url | sudo gpg --dearmor --output $key_path
+  if [ $? -ne 0 ]; then
+    eerr "Download of $key_url failed... $?"
+    return
+  fi
+
+  if [ -n "$arch" ]; then
+    arch_opt="arch=${arch} "
+  fi
+
+  einf "Adding apt list for $list_name"
+  echo "deb [${arch_opt}signed-by=${key_path}] ${list_url} ${list_components}" | sudo tee $sources_path
+}
+
+function _install_from_file {
+  local package_file="$1"
+  for apt_line in "$(grep -v '^#' $package_file)"; do
+    _add_apt_list "$apt_line"
+  done
+}
+
+# Install apt packages
 function install_apt_packages {
   if ! type "apt-get" &> /dev/null; then
     eerr "apt-get must be installed first..."; exit 1
   fi
 
-  if [ "$(lsb_release -cs)" = "bionic" ]; then
-    einf "Adding apt keys"
-    grep -v '^#' $APT_KEY_LISTS | xargs -L 1 curl -fsSL | sudo apt-key add -
-    einf "Adding apt lists"
-    grep -v '^#' $APT_LISTS | xargs -I {} sudo add-apt-repository {}
-  else
-    einf "System in not bionic - not adding apt lists"
+  if [[ -f $APT_LIST ]]; then
+    einf "Installing from $APT_LIST"
+    _install_from_file $APT_LIST
+  fi
+
+  local APT_LIST_CODENAME=${APT_LIST}_$(lsb_release -cs)
+  if [[ -f $APT_LIST_CODENAME ]]; then
+    einf "Installing from $APT_LIST_CODENAME"
+    _install_from_file $APT_LIST_CODENAME
   fi
 
   einf "Updating apt-get"
