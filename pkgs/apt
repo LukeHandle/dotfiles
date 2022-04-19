@@ -45,3 +45,4 @@ terraform
 
 # Requires the 1Password apt list
 1password
+1password-cli
